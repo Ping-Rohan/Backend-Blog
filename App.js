@@ -6,7 +6,6 @@ const PostRouter = require("./Routes/PostRoute");
 const globalErrorHandler = require("./ErrorHandler/GlobalError");
 const AppError = require("./ErrorHandler/AppError");
 const cookieParser = require("cookie-parser");
-const cors = require("cors");
 
 const corsOpts = {
   origin: "*",
