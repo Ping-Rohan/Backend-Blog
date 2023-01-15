@@ -6,8 +6,18 @@ const PostRouter = require("./Routes/PostRoute");
 const globalErrorHandler = require("./ErrorHandler/GlobalError");
 const AppError = require("./ErrorHandler/AppError");
 const cookieParser = require("cookie-parser");
+const cors = require("cors");
+
+const corsOpts = {
+  origin: "*",
+
+  methods: ["GET", "POST"],
+
+  allowedHeaders: ["Content-Type"],
+};
 
 // middlewares
+app.use(cors(corsOpts));
 app.use(express.json());
 app.use(cookieParser());
 
