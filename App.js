@@ -7,16 +7,12 @@ const globalErrorHandler = require("./ErrorHandler/GlobalError");
 const AppError = require("./ErrorHandler/AppError");
 const cookieParser = require("cookie-parser");
 
-const corsOpts = {
-  origin: "*",
-
-  methods: ["GET", "POST"],
-
-  allowedHeaders: ["Content-Type"],
-};
-
 // middlewares
-app.use(cors(corsOpts));
+app.use(
+  cors({
+    origin: "https://backend-blog-omega.vercel.app",
+  })
+);
 app.use(express.json());
 app.use(cookieParser());
 
