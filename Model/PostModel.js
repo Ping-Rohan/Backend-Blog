@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const { post } = require("../Controller/PostController");
 
 const PostSchema = mongoose.Schema(
   {
