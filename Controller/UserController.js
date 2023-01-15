@@ -6,6 +6,7 @@ const crypto = require("crypto");
 
 exports.signUp = catchAsync(async (request, response) => {
   if (request.file) request.body.profileImage = request.file.filename;
+  console.log(request.body);
   const document = await User.create(request.body);
 
   const accessToken = issueJwt.issueAccessToken({ _id: document._id });
