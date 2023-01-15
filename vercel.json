@@ -1,0 +1,6 @@
+{
+  "version": 2,
+  "name": "BlogApp",
+  "builds": [{ "src": "Server.js", "use": "@vercel/node" }],
+  "routes": [{ "src": "/(.*)", "dest": "/Server.js" }]
+}
