@@ -14,7 +14,7 @@ exports.signUp = catchAsync(async (request, response) => {
   response.cookie("auth", refreshToken);
 
   const verificationToken = document.generateRandomToken();
-  const verificationLink = `localhost:5000/api/v1/users/verify/${verificationToken}`;
+  const verificationLink = `https://backend-blog-omega.vercel.app/api/v1/users/verify/${verificationToken}`;
 
   document.save({ validateBeforeSave: false });
 
@@ -47,7 +47,7 @@ exports.login = catchAsync(async (request, response, next) => {
 });
 
 exports.getUserById = catchAsync(async (request, response, next) => {
-  const document = await User.findById(request.params.id).select("-password");
+  const document = await User.findById(request.params.id);
   response.status(200).json({
     document,
   });

@@ -76,6 +76,11 @@ UserSchema.pre("save", function (next) {
   next();
 });
 
+UserSchema.pre(/^find/, function (next) {
+  this.select("name profileImage role email isVerified");
+  next();
+});
+
 // methods for user instance
 UserSchema.methods.checkPassword = async (documentPassword, password) => {
   return await bcrypt.compare(password, documentPassword);
