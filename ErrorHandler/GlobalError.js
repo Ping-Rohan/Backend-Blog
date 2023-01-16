@@ -2,7 +2,7 @@ const AppError = require("./AppError");
 
 function handleDuplicationError(error) {
   const duplicateValues = error.message.match(/"([^"]*)"/)[0];
-  const message = `Duplicate entry : ${duplicateValues}`;
+  const message = `Account already exist with  : ${duplicateValues}`;
   return new AppError(message, 400);
 }
 
